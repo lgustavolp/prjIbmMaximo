@@ -1,0 +1,757 @@
+{
+	"info": {
+		"_postman_id": "6fe409fa-c9d3-4265-9456-e669c034116e",
+		"name": "IBM_MAXIMO",
+		"description": "Geometry Tests for IBM Maximo Spatial BBL (Bounding Box -BBox) Location.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LBS - Location-Based Service",
+			"item": [
+				{
+					"name": "GEOMETRY_TESTS",
+					"item": [
+						{
+							"name": "ASSET",
+							"item": [
+								{
+									"name": "Read ASSET",
+									"id": "09cf900d-cf20-4995-85b4-075fc1b780fa",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://9.30.122.12:7002/maximo/oslc/os/mxasset?oslc.select=assetnum,assetuid,description,autolocate,location&oslc.where=assetnum=\"ASTTEST001\"&_lid=maxadmin&_lpwd=maxadmin&lean=1",
+											"protocol": "https",
+											"host": [
+												"9",
+												"30",
+												"122",
+												"12"
+											],
+											"port": "7002",
+											"path": [
+												"maximo",
+												"oslc",
+												"os",
+												"mxasset"
+											],
+											"query": [
+												{
+													"key": "oslc.select",
+													"value": "assetnum,assetuid,description,autolocate,location"
+												},
+												{
+													"key": "oslc.where",
+													"value": "assetnum=\"ASTTEST001\""
+												},
+												{
+													"key": "_lid",
+													"value": "maxadmin"
+												},
+												{
+													"key": "_lpwd",
+													"value": "maxadmin"
+												},
+												{
+													"key": "lean",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create AST GEOMETRY",
+									"id": "604ac88c-1e44-44f7-8da4-2b027bf916d4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true,
+										"disabledSystemHeaders": {
+											"accept-encoding": true
+										}
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "properties",
+												"value": "*",
+												"type": "default",
+												"disabled": true
+											},
+											{
+												"key": "maxauth",
+												"value": "d2lsc29uOndpbHNvbg==",
+												"type": "text"
+											},
+											{
+												"key": "properties",
+												"value": "spi:geometry,spi:assetnum,spi:siteid",
+												"type": "text"
+											},
+											{
+												"key": "Origin",
+												"value": "https://9.30.122.12:7002",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"spi:geometry\": \"POINT(0 0)\",\n    \"spi:assetnum\": \"ASTTEST001\",\n    \"spi:siteid\": \"BEDFORD\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://9.30.122.12:7002/maximo/oslc/os/mxasset",
+											"protocol": "https",
+											"host": [
+												"9",
+												"30",
+												"122",
+												"12"
+											],
+											"port": "7002",
+											"path": [
+												"maximo",
+												"oslc",
+												"os",
+												"mxasset"
+											],
+											"query": [
+												{
+													"key": "_lid",
+													"value": "maxadmin",
+													"disabled": true
+												},
+												{
+													"key": "_lpwd",
+													"value": "maxadmin",
+													"disabled": true
+												},
+												{
+													"key": "lean",
+													"value": "1",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "4c93d975-9362-46d7-9816-73e767cd268b"
+						},
+						{
+							"name": "LOCATION",
+							"item": [
+								{
+									"name": "Read LOCATION",
+									"id": "bca593de-9e1a-4b04-867e-314d398306d8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "properties",
+												"value": "*",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://9.30.122.12:7002/maximo/oslc/os/mxapilocation?oslc.select=location,locationsid,description,autolocate&oslc.where=location=\"5452\"&_lid=maxadmin&_lpwd=maxadmin&lean=1",
+											"protocol": "https",
+											"host": [
+												"9",
+												"30",
+												"122",
+												"12"
+											],
+											"port": "7002",
+											"path": [
+												"maximo",
+												"oslc",
+												"os",
+												"mxapilocation"
+											],
+											"query": [
+												{
+													"key": "oslc.select",
+													"value": "location,locationsid,description,autolocate"
+												},
+												{
+													"key": "oslc.where",
+													"value": "location=\"5452\""
+												},
+												{
+													"key": "_lid",
+													"value": "maxadmin"
+												},
+												{
+													"key": "_lpwd",
+													"value": "maxadmin"
+												},
+												{
+													"key": "lean",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create LOC GEOMETRY",
+									"id": "5935740c-c1bb-4d25-bb17-d99087ba1529",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "properties",
+												"value": "*",
+												"type": "default"
+											},
+											{
+												"key": "maxauth",
+												"value": "d2lsc29uOndpbHNvbg==",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"spi:geometry\": \"POINT(0 0)\",\n    \"spi:location\": \"LOCLGTEST001\",\n    \"spi:type\": \"COURIER\",\n    \"spi:siteid\": \"BEDFORD\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://9.30.122.12:7002/maximo/oslc/os/mxapilocation",
+											"protocol": "https",
+											"host": [
+												"9",
+												"30",
+												"122",
+												"12"
+											],
+											"port": "7002",
+											"path": [
+												"maximo",
+												"oslc",
+												"os",
+												"mxapilocation"
+											],
+											"query": [
+												{
+													"key": "_lid",
+													"value": "maxadmin",
+													"disabled": true
+												},
+												{
+													"key": "_lpwd",
+													"value": "maxadmin",
+													"disabled": true
+												},
+												{
+													"key": "lean",
+													"value": "1",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "7bf051d8-24ea-4099-aaa1-5ba56e2c499c"
+						},
+						{
+							"name": "SA",
+							"item": [
+								{
+									"name": "Read SA",
+									"id": "bb0ae6ed-b9f2-497f-9e80-79bfdd00eeb7",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "maxauth",
+												"value": "d2lsc29uOndpbHNvbg==",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://9.30.122.12:7002/maximo/oslc/os/mxsrvad?oslc.where=addresscode=\"SA002\"&_lid=wilson&_lpwd=wilson&lean=1&oslc.select=addresscode,plussgjson,description,autolocate,geometry",
+											"protocol": "https",
+											"host": [
+												"9",
+												"30",
+												"122",
+												"12"
+											],
+											"port": "7002",
+											"path": [
+												"maximo",
+												"oslc",
+												"os",
+												"mxsrvad"
+											],
+											"query": [
+												{
+													"key": "oslc.where",
+													"value": "addresscode=\"SA002\""
+												},
+												{
+													"key": "_lid",
+													"value": "wilson"
+												},
+												{
+													"key": "_lpwd",
+													"value": "wilson"
+												},
+												{
+													"key": "lean",
+													"value": "1"
+												},
+												{
+													"key": "oslc.select",
+													"value": "addresscode,plussgjson,description,autolocate,geometry"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "0d1a77e7-b3c8-4f3f-8408-579eabed2261"
+						},
+						{
+							"name": "SR",
+							"item": [
+								{
+									"name": "Read SR",
+									"id": "77a088a3-b3fa-4a60-a5d6-356222e17065",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://9.30.122.12:7002/maximo/oslc/os/mxsr?oslc.select=ticketid,ticketuid,description,autolocate,geometry&oslc.where=ticketid=\"1176\"&_lid=maxadmin&_lpwd=maxadmin&lean=1",
+											"protocol": "https",
+											"host": [
+												"9",
+												"30",
+												"122",
+												"12"
+											],
+											"port": "7002",
+											"path": [
+												"maximo",
+												"oslc",
+												"os",
+												"mxsr"
+											],
+											"query": [
+												{
+													"key": "oslc.select",
+													"value": "ticketid,ticketuid,description,autolocate,geometry"
+												},
+												{
+													"key": "oslc.where",
+													"value": "ticketid=\"1176\""
+												},
+												{
+													"key": "_lid",
+													"value": "maxadmin"
+												},
+												{
+													"key": "_lpwd",
+													"value": "maxadmin"
+												},
+												{
+													"key": "lean",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create SR GEOMETRY",
+									"id": "63635928-3568-49bd-b2ad-e02f11d15161",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "properties",
+												"value": "*",
+												"type": "default"
+											},
+											{
+												"key": "maxauth",
+												"value": "d2lsc29uOndpbHNvbg==",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"spi:geometry\": \"POINT(0 0)\",\n    \"spi:ticketid\": \"SRTEST001\",\n    \"spi:siteid\": \"BEDFORD\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://9.30.122.12:7002/maximo/oslc/os/mxsr",
+											"protocol": "https",
+											"host": [
+												"9",
+												"30",
+												"122",
+												"12"
+											],
+											"port": "7002",
+											"path": [
+												"maximo",
+												"oslc",
+												"os",
+												"mxsr"
+											],
+											"query": [
+												{
+													"key": "_lid",
+													"value": "maxadmin",
+													"disabled": true
+												},
+												{
+													"key": "_lpwd",
+													"value": "maxadmin",
+													"disabled": true
+												},
+												{
+													"key": "lean",
+													"value": "1",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "52e1c768-992c-4543-b787-4886f41fa388"
+						},
+						{
+							"name": "WO",
+							"item": [
+								{
+									"name": "Read WO",
+									"id": "685fef30-5403-47d5-8029-760c7f89fad1",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://9.30.122.12:7002/maximo/oslc/os/mxwo?oslc.select=wonum,workorderid,description,autolocate,serviceaddress.longitudex,serviceaddress.latitudey,plussisgis,geometry,assetnum,location&oslc.where=wonum=\"WOTEST001\"&_lid=wilson&_lpwd=wilson&lean=1&maxauth=d2lsc29uOndpbHNvbg==",
+											"protocol": "https",
+											"host": [
+												"9",
+												"30",
+												"122",
+												"12"
+											],
+											"port": "7002",
+											"path": [
+												"maximo",
+												"oslc",
+												"os",
+												"mxwo"
+											],
+											"query": [
+												{
+													"key": "oslc.select",
+													"value": "wonum,workorderid,description,autolocate,serviceaddress.longitudex,serviceaddress.latitudey,plussisgis,geometry,assetnum,location"
+												},
+												{
+													"key": "oslc.where",
+													"value": "wonum=\"WOTEST001\""
+												},
+												{
+													"key": "_lid",
+													"value": "wilson"
+												},
+												{
+													"key": "_lpwd",
+													"value": "wilson"
+												},
+												{
+													"key": "lean",
+													"value": "1"
+												},
+												{
+													"key": "maxauth",
+													"value": "d2lsc29uOndpbHNvbg=="
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create WO GEOMETRY",
+									"id": "64260436-ed12-4e59-9c7c-804073075775",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true,
+										"disabledSystemHeaders": {
+											"accept-encoding": true
+										}
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "properties",
+												"value": "*",
+												"type": "default",
+												"disabled": true
+											},
+											{
+												"key": "maxauth",
+												"value": "d2lsc29uOndpbHNvbg==",
+												"type": "text"
+											},
+											{
+												"key": "properties",
+												"value": "*",
+												"type": "text"
+											},
+											{
+												"key": "Origin",
+												"value": "https://9.30.122.12:7002",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"spi:geometry\": \"POINT(0 0)\",\"spi:wonum\": \"WOTEST005\",\"spi:siteid\": \"BEDFORD\"}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://9.30.122.12:7002/maximo/oslc/os/mxwo",
+											"protocol": "https",
+											"host": [
+												"9",
+												"30",
+												"122",
+												"12"
+											],
+											"port": "7002",
+											"path": [
+												"maximo",
+												"oslc",
+												"os",
+												"mxwo"
+											],
+											"query": [
+												{
+													"key": "_lid",
+													"value": "maxadmin",
+													"disabled": true
+												},
+												{
+													"key": "_lpwd",
+													"value": "maxadminmaxadmin%231",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "b9decd24-2edc-456e-8e28-973be5028a68"
+						},
+						{
+							"name": "CREATE_POLYGONS",
+							"item": [
+								{
+									"name": "Create Polygon",
+									"id": "cc0621ad-4f73-494f-9195-0648ae9aa0de",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "maxauth",
+												"value": "d2lsc29uOndpbHNvbg==",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "properties",
+												"value": "assetnum,status,geometry,siteid",
+												"type": "text"
+											},
+											{
+												"key": "Origin",
+												"value": "https://9.30.122.12:7002",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"spi:assetnum\": \"GEO34\", \"spi:siteid\": \"BEDFORD\", \"spi:geometry\":\"POLYGON ((-84.55 42.2, -85.5 42.58, -84.55 42.2))\"}"
+										},
+										"url": "https://9.30.122.12:7002/maximo/oslc/os/mxasset"
+									},
+									"response": []
+								},
+								{
+									"name": "Select Area",
+									"id": "c1a7594e-0129-479b-a53d-1094b28539e5",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://{{ip}}:{{porta}}/maximo/oslc/os/mxasset?lean={{lean}}&oslc.select={{oslc.select}}&oslc.where={{oslc.where}}&bboxQuery={{bboxQuery}}&oslc.pageSize={{oslc.pageSize}}&_lid={{_lid}}&_lpwd={{_lpwd}}",
+											"protocol": "https",
+											"host": [
+												"{{ip}}"
+											],
+											"port": "{{porta}}",
+											"path": [
+												"maximo",
+												"oslc",
+												"os",
+												"mxasset"
+											],
+											"query": [
+												{
+													"key": "lean",
+													"value": "{{lean}}"
+												},
+												{
+													"key": "oslc.select",
+													"value": "{{oslc.select}}"
+												},
+												{
+													"key": "oslc.where",
+													"value": "{{oslc.where}}"
+												},
+												{
+													"key": "bboxQuery",
+													"value": "{{bboxQuery}}"
+												},
+												{
+													"key": "oslc.pageSize",
+													"value": "{{oslc.pageSize}}"
+												},
+												{
+													"key": "_lid",
+													"value": "{{_lid}}"
+												},
+												{
+													"key": "_lpwd",
+													"value": "{{_lpwd}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "bfef3a56-f2e5-4f0e-9aa0-2c7c7927d47c",
+							"description": "[MAXIMOLBS-1865<br><br>](https://jsw.ibm.com/browse/MAXIMOLBS-1865)Store multiple geohashes for polygons and other geometries"
+						}
+					],
+					"id": "fb1ac94a-00e1-4933-a2f4-87facc497b93"
+				}
+			],
+			"id": "a8f1d4a3-8950-4fe0-abe5-e5a4d93b5b3c"
+		},
+		{
+			"name": "OPT",
+			"item": [
+				{
+					"name": "https://sonarqube.cicd-dal.np.wce.ibm.com/web_api/api/projects/export_findings?project=mas:ibm-mas-optimizer&branch=main",
+					"id": "9b9bbb6d-4afe-4af6-b6cc-c41349b64a24",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://sonarqube.cicd-dal.np.wce.ibm.com/api/projects/export_findings?project=mas:ibm-mas-optimizer&token=squ_bd57d27139a13b453659a1c83c88e875679541e8",
+							"protocol": "https",
+							"host": [
+								"sonarqube",
+								"cicd-dal",
+								"np",
+								"wce",
+								"ibm",
+								"com"
+							],
+							"path": [
+								"api",
+								"projects",
+								"export_findings"
+							],
+							"query": [
+								{
+									"key": "project",
+									"value": "mas:ibm-mas-optimizer"
+								},
+								{
+									"key": "token",
+									"value": "squ_bd57d27139a13b453659a1c83c88e875679541e8",
+									"type": "text"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "4fa9a701-a05f-41ae-9031-d2413d52c780"
+		}
+	]
+}
